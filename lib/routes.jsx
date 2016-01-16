@@ -33,7 +33,7 @@ publicRoutes.route('/', {
 publicRoutes.route( '/posts/:slug', {
   name: 'singlePost',
   action( params ) {
-    ReactLayout.render( App, { yield: <SinglePost slug={ params.slug } } );
+    ReactLayout.render( App, { yield: <SinglePost slug={ params.slug } /> });
   }
 });
 
@@ -86,40 +86,3 @@ authenticatedRoutes.route( '/posts/:_id/edit', {
     ReactLayout.render( App, { yield: <Editor post={ params._id } /> } );
   }
 });
-
-
-
-
-
-
-
-
-
-
-
-// FlowRouter.route('/',{
-//   name: 'Home', 
-//   action(params) {
-//     ReactLayout.render(MainLayout, { 
-//       content:  <Home />
-//     });
-//   }
-// });
-
-// FlowRouter.route('/signup',{
-//   name: 'Signup', 
-//   action(params) {
-//     ReactLayout.render(MainLayout, { 
-//       content:  <SignUp />
-//     });
-//   }
-// });
-
-// FlowRouter.route('/signin',{
-//   name: 'Home', 
-//   action(params) {
-//     ReactLayout.render(MainLayout, { 
-//       content:  <SignIn />
-//     });
-//   }
-// });

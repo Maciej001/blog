@@ -1,4 +1,8 @@
 App = React.createClass({
+  propTypes: {
+    brandLink: React.PropTypes.string.isRequired,
+    brand: React.PropTypes.string.isRequired
+  },
 
   mixins: [ ReactMeteorData ],
 
@@ -19,6 +23,7 @@ App = React.createClass({
       },
       canView() {
         // if route is public or user is logged in
+        // .getRouteName - returns route name and not the paths!
         return this.isPublic( FlowRouter.getRouteName() ) || !!Meteor.user();
       },
     }

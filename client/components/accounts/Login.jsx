@@ -1,4 +1,4 @@
-SignIn = React.createClass({
+Login = React.createClass({
 
   getInitialState() {
     return {
