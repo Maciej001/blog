@@ -1,35 +1,125 @@
 
+// Configuration
+
 FlowRouter.notFound = {
+  name: 'notFound',
   action() {
-    ReactLayout.render(MainLayout, { 
-      content:  <NotFound />
-    });
+    ReactLayout.render( App, { yield:  <NotFound /> } );
   }
 };
 
-FlowRouter.route('/',{
-  name: 'Home', 
-  action(params) {
-    ReactLayout.render(MainLayout, { 
-      content:  <Home />
-    });
+// Callback if login attempt succeeds
+Accounts.onLogin(() => {
+  let currentRoute = FlowRouter.current();
+  if ( currentRoter && currentRoute.route.group.name === 'public' ) {
+
   }
 });
 
-FlowRouter.route('/signup',{
-  name: 'Signup', 
-  action(params) {
-    ReactLayout.render(MainLayout, { 
-      content:  <SignUp />
-    });
+
+// Public routes
+
+const publicRoutes = FlowRouter.group({
+  name: 'public'
+});
+
+publicRoutes.route('/', {
+  name: 'index',
+  action() {
+    ReactLayout.render( App, { yield: <PostsIndex /> } );
   }
 });
 
-FlowRouter.route('/signin',{
-  name: 'Home', 
-  action(params) {
-    ReactLayout.render(MainLayout, { 
-      content:  <SignIn />
-    });
+publicRoutes.route( '/posts/:slug', {
+  name: 'singlePost',
+  action( params ) {
+    ReactLayout.render( App, { yield: <SinglePost slug={ params.slug } } );
   }
 });
+
+publicRoutes.route( '/tags/:tag', {
+  name: 'tagIndex',
+  action( params ) {
+    ReactLayout.render( App, { yield: <PostIndex tag={ params.tag } /> });
+  }
+});
+
+publicRoutes.route( '/login', {
+  name: 'login',
+  action() {
+    ReactLayout.render( App, { yield: <Login /> } );
+  }
+});
+
+publicRoutes.route( '/recover-password', {
+  name: 'recoverPassword',
+  action() {
+    ReactLayout.render( App, { yield: <RecoverPassword /> } );
+  }
+});
+
+publicRoutes.route( '/reset-password/:token', {
+  name: 'resetPassword',
+  action( params ) {
+    ReactLayout.render( App, { yield: <ResetPassword token={ params.token } /> } );
+  }
+});
+
+
+
+// Authentiacted routes
+
+const authenticatedRoutes = FlowRouter.group({
+  name: 'authenticated'
+});
+
+authenticatedRoutes.route( '/posts', {
+  name: 'posts',
+  action() {
+    ReactLayout.render( App, { yield: <PostsList /> } );
+  }
+});
+
+authenticatedRoutes.route( '/posts/:_id/edit', {
+  name: 'editor',
+  action( params ) {
+    ReactLayout.render( App, { yield: <Editor post={ params._id } /> } );
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+// FlowRouter.route('/',{
+//   name: 'Home', 
+//   action(params) {
+//     ReactLayout.render(MainLayout, { 
+//       content:  <Home />
+//     });
+//   }
+// });
+
+// FlowRouter.route('/signup',{
+//   name: 'Signup', 
+//   action(params) {
+//     ReactLayout.render(MainLayout, { 
+//       content:  <SignUp />
+//     });
+//   }
+// });
+
+// FlowRouter.route('/signin',{
+//   name: 'Home', 
+//   action(params) {
+//     ReactLayout.render(MainLayout, { 
+//       content:  <SignIn />
+//     });
+//   }
+// });

@@ -1,4 +1,4 @@
-Header = React.createClass({
+AppHeader = React.createClass({
   mixins: [ReactMeteorData],
 
   getMeteorData() {
