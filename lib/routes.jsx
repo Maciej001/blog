@@ -83,6 +83,6 @@ authenticatedRoutes.route( '/posts', {
 authenticatedRoutes.route( '/posts/:_id/edit', {
   name: 'editor',
   action( params ) {
-    ReactLayout.render( App, { yield: <Editor post={ params._id } /> } );
+    ReactLayout.render( App, { yield: <Editor postId={ params._id } /> } );
   }
 });

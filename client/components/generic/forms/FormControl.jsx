@@ -39,7 +39,8 @@ FormControl = React.createClass({
     if ( this.props.defaultValue ) {
       return <input
                 defaultChecked = { true }
-                type = "checkbox"
+                type = "checkbox" 
+                ref = { this.props.ref }
                 name = { this.props.name }
                 id = { this.props.id }
                 onClick={ this.toggleCheckbox }
@@ -47,6 +48,7 @@ FormControl = React.createClass({
     } else {
       return <input 
         type="checkbox"
+        ref = { this.props.ref }
         name={ this.props.name }
         id={ this.props.id }
       />
