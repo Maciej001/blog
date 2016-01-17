@@ -1,8 +1,4 @@
 App = React.createClass({
-  propTypes: {
-    brandLink: React.PropTypes.string.isRequired,
-    brand: React.PropTypes.string.isRequired
-  },
 
   mixins: [ ReactMeteorData ],
 
@@ -30,7 +26,7 @@ App = React.createClass({
   },   
 
   getView() {
-    return this.data.canView() ? this.props.yield : <Login />
+    return this.data.canView() ? this.props.yield : <SignIn />
   },
 
   render() {

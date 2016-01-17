@@ -14,25 +14,22 @@ PostsIndex = React.createClass({
       Meteor.subscribe( 'postsIndex' );
     }
 
-    return {
-      posts: Posts.find( query, { sort: { updated: -1 } } ).fetch();
-    }
+    return { posts: Posts.find( query, { sort: { updated: -1 } } ).fetch() }
   },
 
   renderHeader() {
     if ( this.props.tag ) {
-      return ( 
+      return
         <Jumbotron className="tags-header">
           <h4>Posts tagged with: { this.props.tag }.</h4>
         </Jumbotron>;
-      )
+      
     } else {
-      return (
+      return 
         <Jumbotron className="blog-header">
           <h2>Come with us to Las Palmas</h2>
           <h4>A new blog by the Meteor in Flip Flops crew.</h4>
         </Jumbotron>;
-      )
     }
   },
 

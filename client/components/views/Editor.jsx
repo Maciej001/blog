@@ -1,8 +1,8 @@
 Editor = React.createClass({
 
-  propTypes = {
+  propTypes: {
    postId: React.PropTypes.string
-  }
+  },
 
   mixins: [ ReactMeteorData ],
 
@@ -15,12 +15,12 @@ Editor = React.createClass({
     }
   },
 
-  getInitialState: () {
+  getInitialState() {
     let slug = getSlug( this.data.title, { custom: { "'": "" } } );
     return {
       slug: slug
     }
-  }
+  },
 
   generateSlug( e ) {
     let slug = getSlug( this.refs.title.value, { custom: { "'": "" } } );
@@ -129,7 +129,9 @@ Editor = React.createClass({
 
             <FormGroup>
               <SuccessButton type="submit" label="Save Post" />
-            </FromGroup>
+            </FormGroup>
+
+          </Form>
 
         </GridColumn>
       </GridRow>

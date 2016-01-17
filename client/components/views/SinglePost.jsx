@@ -12,14 +12,12 @@ SinglePost = React.createClass({
   },
 
   render() {
-    { this.data.postLoaded ? 
-      return (
-        <GridColumn className="col-xs-12 col-sm-8 col-sm-offset-2">
-          <Post singlePost={ true } post={ this.data.post } />
-        </GridColumn>  
-      )
-    :
-      <div />;
+    if ( this.data.postLoaded ) {
+      return  <GridColumn className="col-xs-12 col-sm-8 col-sm-offset-2">
+                <Post singlePost={ true } post={ this.data.post } />
+              </GridColumn>;
+    } else {
+      return <div />;
     }
   }
 })

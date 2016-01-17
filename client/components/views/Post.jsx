@@ -18,13 +18,12 @@ Post = React.createClass({
 
   renderTags( tags ) {
     if ( tags ) {
-      return (
+      return 
         <div className="tags">
           { tags.map( ( tag ) => {
             return <a className="tag" href={ `/tags/${ tag }` }>#{ tag }</a>;
           } )}
         </div>;
-      )
     }
   },
 
@@ -32,7 +31,7 @@ Post = React.createClass({
     let { formatLastUpdate }  = ReactHelpers,
         post                  = this.props.post;
 
-    return (
+    return 
       <div className="post">
         { this.getPostTitle() }
         <p><strong>Last Updated:</strong>{ formatLastUpdate( post.updated ) } by { post.author }</p>
@@ -40,7 +39,5 @@ Post = React.createClass({
         { this.renderTags( post.tags ) }
         <div className="post-body" dengerouslySetInnerHTML={ this.getHTML( post.content ) }/>
       </div>
-        }
-    )
   }
 })

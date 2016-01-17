@@ -1,6 +1,6 @@
 FormControl = React.createClass({
 
-  propTypes = {
+  propTypes: {
     name:         React.PropTypes.string,
     ref:          React.PropTypes.string,
     type:         React.PropTypes.string,
@@ -16,7 +16,7 @@ FormControl = React.createClass({
         label: React.PropTypes.string
     }),
     onChange:     React.PropTypes.func
-  }
+  },
 
   renderLabel() {
     if ( !this.props.labelLink ) {

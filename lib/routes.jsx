@@ -44,10 +44,17 @@ publicRoutes.route( '/tags/:tag', {
   }
 });
 
-publicRoutes.route( '/login', {
-  name: 'login',
+publicRoutes.route( '/signin', {
+  name: 'signin',
   action() {
-    ReactLayout.render( App, { yield: <Login /> } );
+    ReactLayout.render( App, { yield: <SignIn /> } );
+  }
+});
+
+publicRoutes.route( '/signup', {
+  name: 'signup',
+  action() {
+    ReactLayout.render( App, { yield: <SignUp /> } );
   }
 });
 

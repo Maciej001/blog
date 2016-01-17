@@ -6,13 +6,13 @@ PostsList = React.createClass({
 
     return {
       postsReady: postsSub.ready(),
-      posts: Posts.find().fetch().map( ( map ) => {
+      posts: Posts.find().fetch().map( ( post ) => {
         return {
           uid: post._id,
           href: `/posts/${ post._id }/edit`, 
           label: post.title
         }
-      });
+      })
     }
 
   },

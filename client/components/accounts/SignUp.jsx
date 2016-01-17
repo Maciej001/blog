@@ -37,7 +37,7 @@ SignUp = React.createClass({
       <div className="container">
         <div id="signin">
 
-            <h4> Signup with Email</h4> 
+            <h4> Sign up with Email</h4> 
             { this.state.error ?
               <h4 className="error-msg">{ this.state.error }</h4>
               : ""

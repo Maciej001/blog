@@ -25,8 +25,7 @@ Meteor.publish( 'postsIndex', function() {
   return Posts.find({ published: true });
 });
 
-Meteor.publish( 'singlePost', slug) {
+Meteor.publish( 'singlePost', function( slug ) {
   check( postSlug, String);
   return Posts.find({ slug: slug });
-
-}
+});

@@ -1,4 +1,4 @@
-Login = React.createClass({
+SignIn = React.createClass({
 
   getInitialState() {
     return {
@@ -45,7 +45,7 @@ Login = React.createClass({
       <div className="container">
         <div id="signin">
 
-            <h4> Signin to your Mondo Loyal account</h4>
+            <h4> Sign in</h4>
             { this.state.error ?
               <h4 className="error-msg">{ this.state.error }</h4>
               : ""
